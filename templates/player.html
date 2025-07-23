@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalhes do Jogador - {{ player.player.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f8e9;
+            margin: 0;
+            padding: 0;
+            color: #2e7d32;
+            display: grid;
+            grid-template-columns: 250px 1fr 250px;
+            gap: 20px;
+            min-height: 100vh;
+        }
+        .left-column {
+            padding: 20px;
+            background-color: #dcedc8;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .center-column {
+            padding: 20px;
+        }
+        .right-column {
+            padding: 20px;
+            background-color: #e8f5e9;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        img { 
+            max-width: 150px; 
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+        h1, h2, h3, h4 { 
+            color: #1b5e20;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.2em;
+            border-bottom: 1px solid #aed581;
+            padding-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #dcedc8;
+            border-radius: 8px;
+        }
+        .right-column .section {
+            background-color: #c8e6c9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #aed581;
+            padding: 6px;
+            text-align: left;
+        }
+        th {
+            background-color: #c5e1a5;
+            color: #33691e;
+        }
+        td {
+            background-color: #f1f8e9;
+        }
+        .competition {
+            margin-bottom: 20px;
+            border: 1px solid #aed581;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .competition-header {
+            background-color: #c5e1a5;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .competition-content {
+            padding: 10px;
+            display: none;
+        }
+        .competition.active .competition-content {
+            display: block;
+        }
+        .toggle-icon {
+            font-weight: bold;
+        }
+        /* Novos estilos para as estatísticas do adversário */
+        .opponent-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .form-sequence {
+            display: flex;
+            gap: 4px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        .form-win {
+            background-color: #4caf50;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .form-draw {
+            background-color: #ffc107;
+            color: black;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .form-loss {
+            background-color: #f44336;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .stats-column {
+            background-color: #e8f5e9;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .formations-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .formation-box {
+            background-color: #c8e6c9;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 70px;
+        }
+        .formation {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .formation-matches {
+            font-size: 0.8em;
+            color: #2e7d32;
+        }
+        .cards-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        @media (max-width: 1200px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+            .left-column, .right-column {
+                position: static;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Coluna Esquerda - Dados do Jogador -->
+    <div class="left-column">
+        <a href="/" class="back-button">← Voltar</a>
+        <h2>📋 Dados do Jogador</h2>
+        <img src="{{ player.player.photo }}" alt="Foto de {{ player.player.name }}" />
+        <p><strong>Nome completo:</strong> {{ player.player.firstname }} {{ player.player.lastname }}</p>
+        <p><strong>Nascimento:</strong> {{ player.player.birth.date|format_date }} ({{ player.player.birth.place }}, {{ player.player.birth.country }})</p>
+        <p><strong>Idade:</strong> {{ player.player.age }}</p>
+        <p><strong>Nacionalidade:</strong> {{ player.player.nationality }}</p>
+        <p><strong>Altura:</strong> {{ player.player.height }}</p>
+        <p><strong>Peso:</strong> {{ player.player.weight }}</p>
+        <style>
+            .back-button {
+                display: block; /* Muda para block para ocupar toda a largura */
+                width: fit-content; /* Ajusta a largura ao conteúdo */
+                padding: 8px 15px;
+                margin: 0 auto 20px; /* Centraliza horizontalmente e dá espaço abaixo */
+                background-color: #81c784;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+                text-align: center; /* Centraliza o texto dentro do botão */
+            }
+            .back-button:hover {
+                background-color: #66bb6a;
+            }
+        </style>
+    </div>
+
+    <!-- Coluna Central - Estatísticas por Competição -->
+    <div class="center-column">
+        <h1>Detalhes do Jogador: {{ player.player.name }}</h1>
+        
+        <div class="section">
+            <h2>📊 Estatísticas por Competição</h2>
+            {% for stat in player.statistics %}
+            <div class="competition">
+                <div class="competition-header" onclick="toggleCompetition(this)">
+                    <span>{{ stat.league.name }} ({{ stat.league.country }}) - Temporada {{ stat.league.season }}</span>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="competition-content">
+                    <table>
+                        <tr><th>Time</th><td>{{ stat.team.name }}</td></tr>
+                        <tr><th>Posição</th><td>{{ stat.games.position }}</td></tr>
+                        <tr><th>Jogos</th><td>{{ stat.games.appearences }}</td></tr>
+                        <tr><th>Titular</th><td>{{ stat.games.lineups }}</td></tr>
+                        <tr><th>Minutos</th><td>{{ stat.games.minutes }}</td></tr>
+                        <tr><th>Nota média</th><td>{{ "%.2f"|format(stat.games.rating) if stat.games.rating else 'N/A' }}</td></tr>
+                        <tr><th>Gols</th><td>{{ stat.goals.total if stat.goals.total is not none else '0' }}</td></tr>
+                        <tr><th>Assistências</th><td>{{ stat.goals.assists if stat.goals.assists is not none else '0' }}</td></tr>
+                        <tr><th>Passes totais</th><td>{{ stat.passes.total if stat.passes.total is not none else '0' }}</td></tr>
+                        <tr><th>Passes chave</th><td>{{ stat.passes.key if stat.passes.key is not none else '0' }}</td></tr>
+                        <tr><th>Chutes totais</th><td>{{ stat.shots.total if stat.shots.total is not none else '0' }}</td></tr>
+                        <tr><th>Chutes no gol</th><td>{{ stat.shots.on if stat.shots.on is not none else '0' }}</td></tr>
+                        <tr><th>Dribles tentados</th><td>{{ stat.dribbles.attempts if stat.dribbles.attempts is not none else '0' }}</td></tr>
+                        <tr><th>Dribles bem sucedidos</th><td>{{ stat.dribbles.success if stat.dribbles.success is not none else '0' }}</td></tr>
+                        <tr><th>Duelos totais</th><td>{{ stat.duels.total if stat.duels.total is not none else '0' }}</td></tr>
+                        <tr><th>Duelos ganhos</th><td>{{ stat.duels.won if stat.duels.won is not none else '0' }}</td></tr>
+                        <tr><th>Desarmes</th><td>{{ stat.tackles.total if stat.tackles.total is not none else '0' }}</td></tr>
+                        <tr><th>Interceptações</th><td>{{ stat.tackles.interceptions if stat.tackles.interceptions is not none else '0' }}</td></tr>
+                        <tr><th>Cartões amarelos</th><td>{{ stat.cards.yellow }}</td></tr>
+                        <tr><th>Cartões vermelho direto</th><td>{{ stat.cards.red }}</td></tr>
+                        <tr><th>Faltas cometidas</th><td>{{ stat.fouls.committed if stat.fouls.committed is not none else '0' }}</td></tr>
+                        <tr><th>Faltas sofridas</th><td>{{ stat.fouls.drawn if stat.fouls.drawn is not none else '0' }}</td></tr>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Coluna Direita - Jogo Hoje/Amanhã e Próximo Adversário -->
+    <div class="right-column">
+        <div class="section">
+            <h2>📅 Verificação de Jogo Hoje/Amanhã</h2>
+            {% if player.match_today_tomorrow %}
+                <p><strong>Data:</strong> {{ player.match_today_tomorrow.date|format_date }}</p>
+                <p><strong>Competição:</strong> {{ player.next_opponent_stats.league.name if player.next_opponent_stats else 'N/A' }}</p>
+                <p><strong>Time do Jogador:</strong> {{ player.match_today_tomorrow.player_team_name }}</p>
+                <p><strong>Adversário:</strong> {{ player.match_today_tomorrow.adversary_name }}</p>
+            {% else %}
+                <p>Nenhum jogo encontrado para hoje ou amanhã.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <h2>⚔️ Estatísticas do Próximo Adversário</h2>
+            {% if player.next_opponent_stats %}
+                <div class="opponent-header">
+                    <img src="{{ player.next_opponent_stats.team.logo }}" alt="{{ player.next_opponent_stats.team.name }}" style="height: 50px;">
+                    <h3>{{ player.next_opponent_stats.team.name }}</h3>
+                </div>
+
+                <h4>📊 Forma Recente (últimos 5 jogos)</h4>
+                <div class="form-sequence">
+                    {% for char in player.next_opponent_stats.form[-5:] %}
+                        {% if char == 'W' %}<span class="form-win">V</span>
+                        {% elif char == 'D' %}<span class="form-draw">E</span>
+                        {% else %}<span class="form-loss">D</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <h4>📈 Estatísticas Principais</h4>
+                <table>
+                    <tr><th>Jogos (C/F/T):</th><td>{{ player.next_opponent_stats.fixtures.played.home }}/{{ player.next_opponent_stats.fixtures.played.away }}/{{ player.next_opponent_stats.fixtures.played.total }}</td></tr>
+                    <tr><th>Vitórias (C/F/T):</th><td>{{ player.next_opponent_stats.fixtures.wins.home }}/{{ player.next_opponent_stats.fixtures.wins.away }}/{{ player.next_opponent_stats.fixtures.wins.total }}</td></tr>
+                    <tr><th>Empates (C/F/T):</th><td>{{ player.next_opponent_stats.fixtures.draws.home }}/{{ player.next_opponent_stats.fixtures.draws.away }}/{{ player.next_opponent_stats.fixtures.draws.total }}</td></tr>
+                    <tr><th>Derrotas (C/F/T):</th><td>{{ player.next_opponent_stats.fixtures.loses.home }}/{{ player.next_opponent_stats.fixtures.loses.away }}/{{ player.next_opponent_stats.fixtures.loses.total }}</td></tr>
+                    <tr><th>Gols pró (C/F/T):</th><td>{{ player.next_opponent_stats.goals.for.total.home }}/{{ player.next_opponent_stats.goals.for.total.away }}/{{ player.next_opponent_stats.goals.for.total.total }}</td></tr>
+                    <tr><th>Gols contra (C/F/T):</th><td>{{ player.next_opponent_stats.goals.against.total.home }}/{{ player.next_opponent_stats.goals.against.total.away }}/{{ player.next_opponent_stats.goals.against.total.total }}</td></tr>
+                    <tr><th>Média gols pró:</th><td>{{ player.next_opponent_stats.goals.for.average.total }}</td></tr>
+                    <tr><th>Média gols contra:</th><td>{{ player.next_opponent_stats.goals.against.average.total }}</td></tr>
+                </table>
+
+                <h4>🧩 Formações Utilizadas</h4>
+                <table class="formations-table">
+                    {% for lineup in player.next_opponent_stats.lineups %}
+                    <tr>
+                        <td>{{ lineup.formation }}</td>
+                        <td class="formation-matches">{{ lineup.played }}j</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <!-- Adicione este estilo no cabeçalho: -->
+                <style>
+                    .formations-table {
+                        width: auto;
+                        margin: 10px 0;
+                    }
+                    .formations-table td {
+                        padding: 4px 8px;
+                        background-color: #e8f5e9;
+                    }
+                    .formations-table td:first-child {
+                        border-right: 1px solid #aed581;
+                    }
+                    .formation-matches {
+                        text-align: center;
+                        color: #2e7d32;
+                        font-weight: bold;
+                    }
+                </style>
+                <h4>🟨 Cartões Amarelos</h4>
+                <table>
+                    {% for period, stats in player.next_opponent_stats.cards.yellow.items() %}
+                        {% if period not in ["total", "percentage", ""] and stats.total is not none %}
+                        <tr>
+                            <th>{{ period }}:</th>
+                            <td>{{ stats.total }} ({{ stats.percentage }})</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+
+            {% else %}
+                <p>Sem informações do próximo adversário.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar a exibição das competições
+        function toggleCompetition(element) {
+            const competition = element.parentElement;
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            
+            competition.classList.toggle('active');
+            
+            if (competition.classList.contains('active')) {
+                icon.textContent = '-';
+            } else {
+                icon.textContent = '+';
+            }
+        }
+
+        // Expande a primeira competição por padrão
+        //document.addEventListener('DOMContentLoaded', function() {
+          //  const firstCompetition = document.querySelector('.competition');
+          //  if (firstCompetition) {
+         //       firstCompetition.classList.add('active');
+         //       firstCompetition.querySelector('.toggle-icon').textContent = '-';
+        //    }
+        //});
+    </script>
+</body>
+</html>

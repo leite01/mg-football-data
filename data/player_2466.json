@@ -1,0 +1,488 @@
+{
+    "player": {
+        "name": "W. Kannemann",
+        "firstname": "Walter",
+        "lastname": "Kannemann",
+        "birth": {
+            "date": "1991-03-14",
+            "place": "Concepción del Uruguay",
+            "country": "Argentina"
+        },
+        "age": 34,
+        "nationality": "Argentina",
+        "height": "185 cm",
+        "weight": "86 kg",
+        "photo": "https://media.api-sports.io/football/players/2466.png"
+    },
+    "statistics": [
+        {
+            "league": {
+                "name": "Gaúcho - 1",
+                "country": "Brazil",
+                "season": 2023
+            },
+            "team": {
+                "id": 130,
+                "name": "Gremio"
+            },
+            "games": {
+                "position": "Defender",
+                "appearences": 10,
+                "lineups": 10,
+                "minutes": 872,
+                "rating": null
+            },
+            "goals": {
+                "total": 1,
+                "conceded": null,
+                "assists": null,
+                "saves": null
+            },
+            "passes": {
+                "total": null,
+                "key": null,
+                "accuracy": null
+            },
+            "shots": {
+                "total": null,
+                "on": null
+            },
+            "dribbles": {
+                "attempts": null,
+                "success": null,
+                "past": null
+            },
+            "duels": {
+                "total": null,
+                "won": null
+            },
+            "tackles": {
+                "total": null,
+                "blocks": null,
+                "interceptions": null
+            },
+            "cards": {
+                "yellow": 6,
+                "yellowred": 1,
+                "red": 0
+            },
+            "fouls": {
+                "drawn": null,
+                "committed": null
+            }
+        },
+        {
+            "league": {
+                "name": "Serie A",
+                "country": "Brazil",
+                "season": 2023
+            },
+            "team": {
+                "id": 130,
+                "name": "Gremio"
+            },
+            "games": {
+                "position": "Defender",
+                "appearences": 28,
+                "lineups": 28,
+                "minutes": 2367,
+                "rating": 6.755555
+            },
+            "goals": {
+                "total": 0,
+                "conceded": 0,
+                "assists": 1,
+                "saves": null
+            },
+            "passes": {
+                "total": 961,
+                "key": 6,
+                "accuracy": null
+            },
+            "shots": {
+                "total": 11,
+                "on": 4
+            },
+            "dribbles": {
+                "attempts": 4,
+                "success": 3,
+                "past": null
+            },
+            "duels": {
+                "total": 246,
+                "won": 139
+            },
+            "tackles": {
+                "total": 45,
+                "blocks": 14,
+                "interceptions": 48
+            },
+            "cards": {
+                "yellow": 16,
+                "yellowred": 1,
+                "red": 0
+            },
+            "fouls": {
+                "drawn": 29,
+                "committed": 44
+            }
+        },
+        {
+            "league": {
+                "name": "Copa Do Brasil",
+                "country": "Brazil",
+                "season": 2023
+            },
+            "team": {
+                "id": 130,
+                "name": "Gremio"
+            },
+            "games": {
+                "position": "Defender",
+                "appearences": 8,
+                "lineups": 8,
+                "minutes": 642,
+                "rating": 6.8
+            },
+            "goals": {
+                "total": 0,
+                "conceded": 0,
+                "assists": null,
+                "saves": null
+            },
+            "passes": {
+                "total": 156,
+                "key": null,
+                "accuracy": null
+            },
+            "shots": {
+                "total": null,
+                "on": null
+            },
+            "dribbles": {
+                "attempts": 1,
+                "success": 1,
+                "past": null
+            },
+            "duels": {
+                "total": 43,
+                "won": 24
+            },
+            "tackles": {
+                "total": 8,
+                "blocks": 6,
+                "interceptions": 9
+            },
+            "cards": {
+                "yellow": 4,
+                "yellowred": 1,
+                "red": 0
+            },
+            "fouls": {
+                "drawn": 6,
+                "committed": 8
+            }
+        }
+    ],
+    "match_today_tomorrow": {
+        "date": "2025-07-24",
+        "league_id": 11,
+        "player_team_id": 130,
+        "player_team_name": "Gremio",
+        "adversary_id": 2553,
+        "adversary_name": "Alianza Lima"
+    },
+    "next_opponent_stats": {
+        "league": {
+            "id": 11,
+            "name": "CONMEBOL Sudamericana",
+            "country": "World",
+            "logo": "https://media.api-sports.io/football/leagues/11.png",
+            "flag": null,
+            "season": 2023
+        },
+        "team": {
+            "id": 2553,
+            "name": "Alianza Lima",
+            "logo": "https://media.api-sports.io/football/teams/2553.png"
+        },
+        "form": null,
+        "fixtures": {
+            "played": {
+                "home": 0,
+                "away": 0,
+                "total": 0
+            },
+            "wins": {
+                "home": 0,
+                "away": 0,
+                "total": 0
+            },
+            "draws": {
+                "home": 0,
+                "away": 0,
+                "total": 0
+            },
+            "loses": {
+                "home": 0,
+                "away": 0,
+                "total": 0
+            }
+        },
+        "goals": {
+            "for": {
+                "total": {
+                    "home": 0,
+                    "away": 0,
+                    "total": 0
+                },
+                "average": {
+                    "home": "0.0",
+                    "away": "0.0",
+                    "total": "0.0"
+                },
+                "minute": {
+                    "0-15": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "16-30": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "31-45": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "46-60": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "61-75": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "76-90": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "91-105": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "106-120": {
+                        "total": null,
+                        "percentage": null
+                    }
+                },
+                "under_over": {
+                    "0.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "1.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "2.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "3.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "4.5": {
+                        "over": 0,
+                        "under": 0
+                    }
+                }
+            },
+            "against": {
+                "total": {
+                    "home": 0,
+                    "away": 0,
+                    "total": 0
+                },
+                "average": {
+                    "home": "0.0",
+                    "away": "0.0",
+                    "total": "0.0"
+                },
+                "minute": {
+                    "0-15": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "16-30": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "31-45": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "46-60": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "61-75": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "76-90": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "91-105": {
+                        "total": null,
+                        "percentage": null
+                    },
+                    "106-120": {
+                        "total": null,
+                        "percentage": null
+                    }
+                },
+                "under_over": {
+                    "0.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "1.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "2.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "3.5": {
+                        "over": 0,
+                        "under": 0
+                    },
+                    "4.5": {
+                        "over": 0,
+                        "under": 0
+                    }
+                }
+            }
+        },
+        "biggest": {
+            "streak": {
+                "wins": 0,
+                "draws": 0,
+                "loses": 0
+            },
+            "wins": {
+                "home": null,
+                "away": null
+            },
+            "loses": {
+                "home": null,
+                "away": null
+            },
+            "goals": {
+                "for": {
+                    "home": 0,
+                    "away": 0
+                },
+                "against": {
+                    "home": 0,
+                    "away": 0
+                }
+            }
+        },
+        "clean_sheet": {
+            "home": 0,
+            "away": 0,
+            "total": 0
+        },
+        "failed_to_score": {
+            "home": 0,
+            "away": 0,
+            "total": 0
+        },
+        "penalty": {
+            "scored": {
+                "total": 0,
+                "percentage": "0%"
+            },
+            "missed": {
+                "total": 0,
+                "percentage": "0%"
+            },
+            "total": 0
+        },
+        "lineups": [],
+        "cards": {
+            "yellow": {
+                "0-15": {
+                    "total": null,
+                    "percentage": null
+                },
+                "16-30": {
+                    "total": null,
+                    "percentage": null
+                },
+                "31-45": {
+                    "total": null,
+                    "percentage": null
+                },
+                "46-60": {
+                    "total": null,
+                    "percentage": null
+                },
+                "61-75": {
+                    "total": null,
+                    "percentage": null
+                },
+                "76-90": {
+                    "total": null,
+                    "percentage": null
+                },
+                "91-105": {
+                    "total": null,
+                    "percentage": null
+                },
+                "106-120": {
+                    "total": null,
+                    "percentage": null
+                }
+            },
+            "red": {
+                "0-15": {
+                    "total": null,
+                    "percentage": null
+                },
+                "16-30": {
+                    "total": null,
+                    "percentage": null
+                },
+                "31-45": {
+                    "total": null,
+                    "percentage": null
+                },
+                "46-60": {
+                    "total": null,
+                    "percentage": null
+                },
+                "61-75": {
+                    "total": null,
+                    "percentage": null
+                },
+                "76-90": {
+                    "total": null,
+                    "percentage": null
+                },
+                "91-105": {
+                    "total": null,
+                    "percentage": null
+                },
+                "106-120": {
+                    "total": null,
+                    "percentage": null
+                }
+            }
+        }
+    }
+}
