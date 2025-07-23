@@ -3,6 +3,9 @@ A simple yet powerful Flask-based web application that displays detailed statist
 
 ## 🔍 Features
 **Player Profile Sidebar**: Fixed left column with player photo and basic details (name, nationality, age, height, weight, etc.).
+
 **Competition Statistics**: Center column with collapsible sections for each competition the player participated in, showing in-depth stats (games, goals, assists, passes, duels, cards, etc.).
+
 **Match Checker**: Right column checks if the player has a scheduled game today or tomorrow and displays relevant fixture info.
+
 **Next Opponent Stats**: Shows summary statistics for the player’s upcoming opponent team in the same league.
